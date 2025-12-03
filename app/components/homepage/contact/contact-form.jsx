@@ -43,24 +43,23 @@ function ContactForm() {
           message: userInput.message,
           to_name: "Tufayel",
         },
+        // public key
         "hvLBFM1c8ddmZYX3_"
       );
 
-      // Sender Auto-Reply
       await emailjs.send(
-        "service_22b4peiprotflio",
+        "service_22b4peiprotflio", // check spelling!!
         "template_3wfjkm9",
         {
           from_name: userInput.name,
           from_email: userInput.email,
           message: userInput.message,
 
-          // Auto-Reply এই ফিল্ডটাই চায়
+          // Auto-Reply email address
           to_email: userInput.email,
         },
         "hvLBFM1c8ddmZYX3_"
       );
-
       toast.success("Message sent! Check your inbox for confirmation");
       setUserInput({ name: "", email: "", message: "" });
       setError({ email: false });
