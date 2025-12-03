@@ -46,15 +46,17 @@ function ContactForm() {
         "hvLBFM1c8ddmZYX3_"
       );
 
-      // ২. Sender Auto-Reply
+      // Sender Auto-Reply
       await emailjs.send(
         "service_22b4peiprotflio",
         "template_3wfjkm9",
         {
           from_name: userInput.name,
-          from_email: userInput.email, // Template-এর {{from_email}}
-          email: userInput.email, // Auto-Reply এর "To Email = {{email}}"
+          from_email: userInput.email,
           message: userInput.message,
+
+          email: userInput.email, // MUST match To Email
+          reply_to: userInput.email, // MUST for preventing playground error
         },
         "hvLBFM1c8ddmZYX3_"
       );
