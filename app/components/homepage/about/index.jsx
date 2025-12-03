@@ -23,7 +23,7 @@ function AboutSection() {
 
           <div className="text-gray-200 text-base lg:text-lg leading-relaxed space-y-5">
             <p>
-              Hi, I'm{" "}
+              Hi,I&apos;m
               <span className="text-purple-400 font-bold">Tufayel Ahmed</span> —
               a passionate{" "}
               <span className="font-bold text-pink-400">
