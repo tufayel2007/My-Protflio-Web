@@ -33,7 +33,7 @@ function ContactForm() {
     setIsLoading(true);
 
     try {
-      // ১. তোমার কাছে মেসেজ পাঠানো (মূল টেমপ্লেট)
+      // ১. তোমাকে মেসেজ পাঠানো (Main Template)
       await emailjs.send(
         "service_22b4peiprotflio",
         "template_tdp0yse",
@@ -43,16 +43,17 @@ function ContactForm() {
           message: userInput.message,
           to_name: "Tufayel",
         },
-        "hvLBFM1c8ddmZYX3_" // Public Key
+        "hvLBFM1c8ddmZYX3_"
       );
 
-      // ২. Sender কে অটো-রিপ্লাই পাঠানো
+      // ২. Sender Auto-Reply
       await emailjs.send(
         "service_22b4peiprotflio",
-        "template_tdp0yse", // ← তোমার Auto-Reply Template ID (Settings থেকে চেক করো)
+        "template_3wfjkm9",
         {
           from_name: userInput.name,
-          email: userInput.email, // এটা ছাড়া ইমেইল যাবে না!
+          from_email: userInput.email, // Template-এর {{from_email}}
+          email: userInput.email, // Auto-Reply এর "To Email = {{email}}"
           message: userInput.message,
         },
         "hvLBFM1c8ddmZYX3_"
