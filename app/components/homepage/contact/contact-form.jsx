@@ -36,7 +36,7 @@ function ContactForm() {
       // ১. তোমার কাছে মেসেজ পাঠানো (মূল টেমপ্লেট)
       await emailjs.send(
         "service_22b4peiprotflio",
-        "template_bas04ijmyauto",
+        "template_tdp0yse",
         {
           from_name: userInput.name,
           from_email: userInput.email,
@@ -49,7 +49,7 @@ function ContactForm() {
       // ২. Sender কে অটো-রিপ্লাই পাঠানো
       await emailjs.send(
         "service_22b4peiprotflio",
-        "template_bas04ijmyauto", // ← তোমার Auto-Reply Template ID (Settings থেকে চেক করো)
+        "template_tdp0yse", // ← তোমার Auto-Reply Template ID (Settings থেকে চেক করো)
         {
           from_name: userInput.name,
           email: userInput.email, // এটা ছাড়া ইমেইল যাবে না!
