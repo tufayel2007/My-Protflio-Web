@@ -35,8 +35,8 @@ function ContactForm() {
     try {
       // ১. তোমার কাছে মেসেজ পাঠানো (মূল টেমপ্লেট)
       await emailjs.send(
-        "service_22b4peiprotflio", // তোমার Service ID (ঠিক করা)
-        "template_bas04ij", // তোমার মূল টেমপ্লেট ID
+        "service_22b4peiprotflio",
+        "template_bas04ijmyauto",
         {
           from_name: userInput.name,
           from_email: userInput.email,
