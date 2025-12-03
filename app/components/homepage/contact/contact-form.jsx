@@ -55,8 +55,8 @@ function ContactForm() {
           from_email: userInput.email,
           message: userInput.message,
 
-          email: userInput.email, // MUST match To Email
-          reply_to: userInput.email, // MUST for preventing playground error
+          // Auto-Reply এই ফিল্ডটাই চায়
+          to_email: userInput.email,
         },
         "hvLBFM1c8ddmZYX3_"
       );
