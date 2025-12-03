@@ -1,7 +1,7 @@
 export const educations = [
   {
     id: 1,
-    title: "Bachelor Degree",
+    title: "Diploma Engineering",
     duration: "2024 - 2025",
     institution: "Sylhet Polytechnic Institute.  ",
   },
