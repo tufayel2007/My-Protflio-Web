@@ -48,14 +48,14 @@ function ContactForm() {
 
       // ২. Sender কে অটো-রিপ্লাই পাঠানো
       await emailjs.send(
-        "service_22b4pej",
-        "template_ym0bjjj", // ← তোমার Auto-Reply Template ID (Settings থেকে চেক করো)
+        "service_22b4peiprotflio",
+        "template_bas04ijmyauto", // ← তোমার Auto-Reply Template ID (Settings থেকে চেক করো)
         {
           from_name: userInput.name,
           to_email: userInput.email, // এটা ছাড়া ইমেইল যাবে না!
           message: userInput.message,
         },
-        "Q-anB_0Teb0AWe3TE"
+        "hvLBFM1c8ddmZYX3_"
       );
 
       toast.success("Message sent! Check your inbox for confirmation");
