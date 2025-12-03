@@ -52,7 +52,7 @@ function ContactForm() {
         "template_bas04ijmyauto", // ← তোমার Auto-Reply Template ID (Settings থেকে চেক করো)
         {
           from_name: userInput.name,
-          to_email: userInput.email, // এটা ছাড়া ইমেইল যাবে না!
+          email: userInput.email, // এটা ছাড়া ইমেইল যাবে না!
           message: userInput.message,
         },
         "hvLBFM1c8ddmZYX3_"
