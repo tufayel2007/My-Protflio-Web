@@ -1,162 +1,185 @@
 "use client";
-
-import { isValidEmail } from "@/utils/check-email";
-import emailjs from "@emailjs/browser";
 import { useState } from "react";
-import { TbMailForward } from "react-icons/tb";
-import { toast } from "react-toastify";
 
-function ContactForm() {
-  const [error, setError] = useState({ email: false });
-  const [isLoading, setIsLoading] = useState(false);
-  const [userInput, setUserInput] = useState({
+export default function ContactPage() {
+  const [form, setForm] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  const handleSendMail = async (e) => {
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Validation
-    if (!userInput.name || !userInput.email || !userInput.message) {
-      toast.error("All fields are required!");
-      return;
-    }
-
-    if (!isValidEmail(userInput.email)) {
-      setError({ email: true });
-      toast.error("Please enter a valid email!");
-      return;
-    }
-
-    setIsLoading(true);
+    setStatus("Sending...");
 
     try {
-      // ১. তোমাকে মেসেজ পাঠানো (Main Template)
-      await emailjs.send(
-        "service_22b4peiprotflio",
-        "template_tdp0yse",
-        {
-          from_name: userInput.name,
-          from_email: userInput.email,
-          message: userInput.message,
-          to_name: "Tufayel",
-        },
-        // public key
-        "hvLBFM1c8ddmZYX3_"
-      );
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
 
-      await emailjs.send(
-        "service_22b4peiprotflio", // check spelling!!
-        "template_3wfjkm9",
-        {
-          from_name: userInput.name,
-          from_email: userInput.email,
-          message: userInput.message,
+      const data = await res.json();
 
-          // Auto-Reply email address
-          to_email: userInput.email,
-        },
-        "hvLBFM1c8ddmZYX3_"
-      );
-      toast.success("Message sent! Check your inbox for confirmation");
-      setUserInput({ name: "", email: "", message: "" });
-      setError({ email: false });
-    } catch (err) {
-      console.error("EmailJS Error:", err);
-      toast.error("Failed to send message. Please try again!");
-    } finally {
-      setIsLoading(false);
+      if (data.success) {
+        setStatus("Message Sent Successfully ✔ Chak email !");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setStatus("Failed to send ❌");
+      }
+    } catch (error) {
+      console.log(error);
+      setStatus("Error sending message ❌");
     }
   };
 
   return (
-    <div>
-      <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">
-        Contact with me
-      </p>
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "radial-gradient(circle at top, #0a0f1f, #000)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "40px",
+      }}
+    >
+      {/* Glass Card */}
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "550px",
+          padding: "40px",
+          background: "rgba(255, 255, 255, 0.05)",
+          backdropFilter: "blur(14px)",
+          borderRadius: "20px",
+          border: "1px solid rgba(255,255,255,0.1)",
+          boxShadow: "0 0 25px rgba(0, 255, 255, 0.2)",
+        }}
+      >
+        <h1
+          style={{
+            textAlign: "center",
+            marginBottom: "25px",
+            fontSize: "32px",
+            color: "#00eaff",
+            textShadow: "0 0 20px #00eaff",
+            fontWeight: 700,
+          }}
+        >
+          Contact Me
+        </h1>
 
-      <div className="max-w-3xl text-white rounded-lg border border-[#464c6a] p-4 lg:p-8 shadow-xl bg-gradient-to-br from-gray-900/50 to-purple-900/20 backdrop-blur-md">
-        <p className="text-sm text-gray-300 mb-8">
-          Have a project in mind? Let's talk! I'm open to freelance work and
-          collaboration.
-        </p>
+        <form
+          onSubmit={handleSubmit}
+          style={{ display: "flex", flexDirection: "column", gap: "18px" }}
+        >
+          {/* Input */}
+          <input
+            name="name"
+            type="text"
+            placeholder="Your Full Name"
+            value={form.name}
+            onChange={handleChange}
+            required
+            style={{
+              padding: "14px",
+              background: "rgba(255,255,255,0.07)",
+              border: "1px solid rgba(255,255,255,0.15)",
+              borderRadius: "12px",
+              color: "white",
+              outline: "none",
+              transition: "0.3s",
+            }}
+            onFocus={(e) => (e.target.style.boxShadow = "0 0 12px #00eaff")}
+            onBlur={(e) => (e.target.style.boxShadow = "none")}
+          />
 
-        <form onSubmit={handleSendMail} className="space-y-6">
-          {/* Name */}
-          <div>
-            <label className="text-sm text-gray-300">Your Name</label>
-            <input
-              type="text"
-              value={userInput.name}
-              onChange={(e) =>
-                setUserInput({ ...userInput, name: e.target.value })
-              }
-              className="mt-2 w-full px-4 py-3 bg-gray-800/70 border border-gray-700 rounded-lg focus:border-purple-500 focus:outline-none transition-all duration-300"
-              placeholder="John Doe"
-              required
-            />
-          </div>
+          <input
+            name="email"
+            type="email"
+            placeholder="Your Email Address"
+            value={form.email}
+            onChange={handleChange}
+            required
+            style={{
+              padding: "14px",
+              background: "rgba(255,255,255,0.07)",
+              border: "1px solid rgba(255,255,255,0.15)",
+              borderRadius: "12px",
+              color: "white",
+              outline: "none",
+              transition: "0.3s",
+            }}
+            onFocus={(e) => (e.target.style.boxShadow = "0 0 12px #00eaff")}
+            onBlur={(e) => (e.target.style.boxShadow = "none")}
+          />
 
-          {/* Email */}
-          <div>
-            <label className="text-sm text-gray-300">Your Email</label>
-            <input
-              type="email"
-              value={userInput.email}
-              onChange={(e) => {
-                setUserInput({ ...userInput, email: e.target.value });
-                setError({ email: false });
-              }}
-              className="mt-2 w-full px-4 py-3 bg-gray-800/70 border border-gray-700 rounded-lg focus:border-purple-500 focus:outline-none transition-all duration-300"
-              placeholder="john@example.com"
-              required
-            />
-            {error.email && (
-              <p className="text-red-400 text-xs mt-1">Invalid email address</p>
-            )}
-          </div>
+          {/* Textarea */}
+          <textarea
+            name="message"
+            placeholder="Write your message..."
+            value={form.message}
+            onChange={handleChange}
+            required
+            rows="5"
+            style={{
+              padding: "14px",
+              background: "rgba(255,255,255,0.07)",
+              border: "1px solid rgba(255,255,255,0.15)",
+              borderRadius: "12px",
+              color: "white",
+              outline: "none",
+              transition: "0.3s",
+              resize: "vertical",
+            }}
+            onFocus={(e) => (e.target.style.boxShadow = "0 0 12px #00eaff")}
+            onBlur={(e) => (e.target.style.boxShadow = "none")}
+          ></textarea>
 
-          {/* Message */}
-          <div>
-            <label className="text-sm text-gray-300">Your Message</label>
-            <textarea
-              value={userInput.message}
-              onChange={(e) =>
-                setUserInput({ ...userInput, message: e.target.value })
-              } // ← ঠিক করা!
-              rows={5}
-              className="mt-2 w-full px-4 py-3 bg-gray-800/70 border border-gray-700 rounded-lg focus:border-purple-500 focus:outline-none transition-all duration-300 resize-none"
-              placeholder="Hi Tufayel, I saw your portfolio and..."
-              required
-            />
-          </div>
-
-          {/* Submit Button */}
-          <div className="text-center pt-4">
-            <button
-              type="submit"
-              disabled={isLoading}
-              className={`flex items-center gap-3 mx-auto px-8 py-4 rounded-full font-bold text-white transition-all duration-300 transform hover:scale-105 shadow-lg ${
-                isLoading
-                  ? "bg-gray-600 cursor-not-allowed"
-                  : "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
-              }`}
-            >
-              {isLoading ? (
-                <>Sending...</>
-              ) : (
-                <>
-                  Send Message <TbMailForward size={24} />
-                </>
-              )}
-            </button>
-          </div>
+          {/* Button */}
+          <button
+            type="submit"
+            style={{
+              padding: "14px",
+              background: "linear-gradient(90deg, #00eaff, #7b2ff7, #00eaff)",
+              color: "black",
+              fontWeight: "700",
+              borderRadius: "50px",
+              border: "none",
+              cursor: "pointer",
+              transition: "0.25s",
+              fontSize: "17px",
+            }}
+            onMouseOver={(e) =>
+              (e.target.style.boxShadow = "0 0 20px #00eaff, 0 0 40px #7b2ff7")
+            }
+            onMouseOut={(e) => (e.target.style.boxShadow = "none")}
+          >
+            Send Message
+          </button>
         </form>
+
+        {/* Status Message */}
+        {status && (
+          <p
+            style={{
+              marginTop: "20px",
+              textAlign: "center",
+              color: "#00eaff",
+              fontWeight: "600",
+            }}
+          >
+            {status}
+          </p>
+        )}
       </div>
     </div>
   );
 }
-
-export default ContactForm;
