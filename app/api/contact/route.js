@@ -6,7 +6,9 @@ export async function POST(req) {
 
     // 1) Nodemailer Transporter (Gmail + App Password)
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_PASS,
@@ -73,7 +75,7 @@ export async function POST(req) {
     </div>
 
     <div style="text-align:center; color:#aaa; margin-top:40px;">
-      <div style="font-size:20px; font-weight:600; color:#fff;">Tufayle Ahmed</div>
+      <div style="font-size:20px; font-weight:600; color:#fff;">Tufayel Ahmed</div>
       <div style="color:#0ff; font-size:15px;">Web Developer • UI/UX Designer</div>
     </div>
 
