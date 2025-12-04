@@ -53,7 +53,7 @@ export async function POST(req) {
             <!-- Logo -->
             <tr>
               <td style="text-align:center;padding-bottom:20px;">
-                <img src="https://yourdomain.com/logo.gif" alt="Tufayle Ahmed Logo" width="86" style="border-radius:50%;border:3px solid #2aa1ff;" />
+                <img src="https://i.ibb.co.com/FqNWnYJv/banear.jpg" alt="Tufayle Ahmed Logo" width="86" style="border-radius:50%;border:3px solid #2aa1ff;" />
               </td>
             </tr>
 
