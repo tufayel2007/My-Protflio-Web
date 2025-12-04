@@ -18,7 +18,7 @@ function AboutSection() {
         {/* Text Content */}
         <div className="order-2 lg:order-1 space-y-6">
           <h2 className="text-[#16f2b3] text-xl font-semibold uppercase tracking-widest">
-            Who I Am?
+            Who AM I?
           </h2>
 
           <div className="text-gray-200 text-base lg:text-lg leading-relaxed space-y-5">
@@ -46,7 +46,7 @@ function AboutSection() {
 
             <p>
               Clean architecture, pixel-perfect UI, lightning-fast performance,
-              and delightful user experience — these are not just goals, they're
+              and delightful user experience — these are not just goals they're
               my standard.
             </p>
 

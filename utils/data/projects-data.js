@@ -29,8 +29,8 @@ export const projectsData = [
       "A fun mini-games project built with React, featuring classic games like Tic Tac Toe, Quiz, and Play & Pause. It showcases interactive UI, state management, and responsive design.",
     tools: ["React", "JavaScript", "CSS"],
     role: "Full Stack Developer",
-    code: "https://github.com/tufayel2007/green-earth",
-    demo: "https://tic-tac-toe-two-self-19.vercel.app/",
+    code: "https://github.com/tufayel2007/green-earth.git",
+    demo: "https://tufayel2007.github.io/green-earth/",
     image: "/GREEN-EARTH.png",
   },
 ];
