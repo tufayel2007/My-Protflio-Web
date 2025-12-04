@@ -14,12 +14,12 @@ const AnimationLottie = ({ animationPath, width, className }) => {
 
   return (
     <div className={className}>
-    <Lottie
-      loop
-      autoplay
-      animationData={animationPath}
-      style={{ width: width || "95%" }}
-    />
+      <Lottie
+        loop
+        autoplay
+        animationData={animationPath}
+        style={{ width: width || "95%" }}
+      />
     </div>
   );
 };
