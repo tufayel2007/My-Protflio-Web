@@ -1,13 +1,13 @@
 // @flow strict
-import { personalData } from '@/utils/data/personal-data';
-import Link from 'next/link';
+import { personalData } from "@/utils/data/personal-data";
+import Link from "next/link";
 import { BiLogoLinkedin } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
-import { FaFacebook, FaStackOverflow, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaStackOverflow, FaWhatsapp } from "react-icons/fa";
 import { FaInstagram, FaXTwitter } from "react-icons/fa6";
 import { IoLogoGithub, IoLogoWhatsapp, IoMdCall } from "react-icons/io";
 import { MdAlternateEmail } from "react-icons/md";
-import ContactForm from './contact-form';
+import ContactForm from "./contact-form";
 
 function ContactSection() {
   return (
@@ -34,27 +34,29 @@ function ContactSection() {
                 className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#1c9935] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
                 size={36}
               />
-              <span>
-                {personalData.phone}
-              </span>
+              <span>{personalData.phone}</span>
             </p>
-             <p className="text-sm md:text-xl flex items-center gap-3">
+            <p className="text-sm md:text-xl flex items-center gap-3">
               <IoLogoWhatsapp
                 className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#1c9935] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
                 size={36}
               />
-              <span>
-                {personalData.whatsApp}
-              </span>
+              <span>{personalData.whatsApp}</span>
             </p>
             <p className="text-sm md:text-xl flex items-center gap-3">
               <CiLocationOn
                 className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#ab0f17] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
                 size={36}
               />
-              <span>
-                {personalData.address}
-              </span>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                  personalData.address
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>{personalData.address}</span>
+              </a>
             </p>
           </div>
           <div className="mt-8 lg:mt-16 flex items-center gap-5 lg:gap-10">
@@ -99,6 +101,6 @@ function ContactSection() {
       </div>
     </div>
   );
-};
+}
 
 export default ContactSection;
