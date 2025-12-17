@@ -65,7 +65,6 @@ export default function RotatingProfile() {
         />
       </motion.div>
 
-      {/* Center Image */}
       <div className="w-[38px] h-[38px] rounded-full overflow-hidden bg-white shadow-md z-10">
         <Image
           src="/ProfileHomeMY.png"
