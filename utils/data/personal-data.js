@@ -1,6 +1,6 @@
 export const personalData = {
   name: "TUFAYEL AHMED",
-  profile: "/MyProfileNabbr.jpeg",
+  profile: "/ProfileHomeMY.png",
   designation: "Full Stack Web Engineering",
   roles: [
     "Software Developer",
