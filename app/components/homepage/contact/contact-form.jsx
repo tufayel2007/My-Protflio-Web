@@ -50,7 +50,7 @@ export default function ContactPage() {
         padding: "40px",
       }}
     >
-      {/* Glass Card */}
+      {/* Glass  */}
       <div
         style={{
           width: "100%",
