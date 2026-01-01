@@ -23,5 +23,5 @@ export const personalData = {
   whatsAppUrl: "https://wa.me/8801759560183",
   devUsername: "tufayel2007",
   resume:
-    "https://docs.google.com/document/d/18bJHmr_yB7cO1-Wa4e_fDQCJErGCxlB6R-B0F4UEbfM/edit?tab=t.0#heading=h.yz7y65598qww",
+    "https://docs.google.com/document/d/1TNv9Rm0fGiN-ys6jbhdgsqx1B24Ic20W2VnmEHwQnU8/edit?usp=sharing",
 };

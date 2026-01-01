@@ -43,7 +43,7 @@ export default function ContactPage() {
     <div
       style={{
         minHeight: "100vh",
-        background: "radial-gradient(circle at top, #0a0f1f, #000)",
+        // background: "radial-gradient(circle at top, #0a0f1f, #000)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

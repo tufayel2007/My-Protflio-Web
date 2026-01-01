@@ -67,7 +67,7 @@ export default function RotatingProfile() {
 
       <div className="w-[38px] h-[38px] rounded-full overflow-hidden bg-white shadow-md z-10">
         <Image
-          src="/ProfileHomeMY.png"
+          src="/MyProfileNabbr.jpeg"
           alt="Profile"
           width={38}
           height={38}
