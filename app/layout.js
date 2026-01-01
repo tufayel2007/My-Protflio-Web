@@ -11,7 +11,12 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "TUFAYEL AHMED",
-  description: "This is the portfolio of TUFAYEL AHMED.",
+  description: "Portfolio site",
+  icons: {
+    icon: "/MyProfileNabbr.jpeg",
+    shortcut: "/MyProfileNabbr.jpeg",
+    apple: "/MyProfileNabbr.jpeg",
+  },
 };
 
 export default function RootLayout({ children }) {
