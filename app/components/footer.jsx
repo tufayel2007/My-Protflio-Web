@@ -3,28 +3,33 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <div className="relative border-t bg-[#0d1224] border-[#353951] text-white">
-      <div className="mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] py-6 lg:py-10">
-        <div className="flex justify-center -z-40">
-          <div className="absolute top-0 h-[1px] w-1/2  bg-gradient-to-r from-transparent via-violet-500 to-transparent"></div>
-        </div>
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <p className="text-sm">
-            Designed and Developed by{" "}
-            <Link
-              target="_blank"
-              href="https://www.linkedin.com/in/rajatsharma22"
-              className="text-[#16f2b3]"
-            >
-              TUFAYEL AHMED
-            </Link>
-          </p>
-          <p className="text-sm">
-            &copy; {new Date().getFullYear()} All rights reserved.
-          </p>
-        </div>
+    <footer className="relative border-t border-[#353951] bg-[#0d1224] text-white overflow-hidden">
+      {/* Subtle animated gradient line */}
+      <div className="absolute top-0 left-1/4 w-1/2 h-[2px] bg-gradient-to-r from-transparent via-violet-500 to-transparent animate-pulse"></div>
+
+      <div className="mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] py-8 lg:py-12 flex flex-col md:flex-row items-center justify-between gap-4">
+        {/* Left Section */}
+        <p className="text-sm text-center md:text-left">
+          Designed & Developed by{" "}
+          <Link
+            target="_blank"
+            href="https://my-protflio-web.vercel.app/"
+            className="text-[#16f2b3] hover:text-violet-400 transition-colors duration-300"
+          >
+            TUFAYEL AHMED
+          </Link>
+        </p>
+
+        {/* Right Section */}
+        <p className="text-sm text-center md:text-right">
+          &copy; {new Date().getFullYear()} All Rights Reserved.
+        </p>
       </div>
-    </div>
+
+      {/* Background subtle gradient circle */}
+      <div className="absolute -bottom-20 -right-20 w-72 h-72 rounded-full bg-gradient-to-r from-violet-500 to-transparent opacity-10 blur-3xl"></div>
+      <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-gradient-to-r from-cyan-400 to-transparent opacity-10 blur-3xl"></div>
+    </footer>
   );
 }
 
