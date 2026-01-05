@@ -86,7 +86,7 @@ function AboutSection() {
             {/* Main Image Container */}
             <div className="relative">
               <Image
-                src={personalData.profile || "/MyProfileNabbr.jpeg"}
+                src={personalData.profil || "/MyProfileNabbr.jpeg"}
                 width={420}
                 height={420}
                 alt="Tufayel Ahmed - FullStack Developer"

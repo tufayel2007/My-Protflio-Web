@@ -1,75 +1,48 @@
-// @flow strict
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+import Loading from "../loading";
 import RotatingProfile from "./helper/RotatingProfile";
 
 function Navbar() {
-  return (
-    <nav className="bg-transparent">
-      <div className="flex items-center justify-between py-5">
-        <div className="flex flex-shrink-0 items-center">
-          <RotatingProfile />
-        </div>
+  const [loading, setLoading] = useState(false);
 
-        <ul
-          className="mt-4 flex h-screen max-h-0 w-full flex-col items-start text-sm opacity-0 md:mt-0 md:h-auto md:max-h-screen md:w-auto md:flex-row md:space-x-1 md:border-0 md:opacity-100"
-          id="navbar-default"
-        >
-          <li>
-            <Link
-              className="block px-4 py-2 no-underline outline-none hover:no-underline"
-              href="/#about"
-            >
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 underline">
-                ABOUT
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="block px-4 py-2 no-underline outline-none hover:no-underline"
-              href="/#experience"
-            >
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 underline">
-                EXPERIENCE
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="block px-4 py-2 no-underline outline-none hover:no-underline"
-              href="/#skills"
-            >
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 underline">
-                SKILLS
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="block px-4 py-2 no-underline outline-none hover:no-underline"
-              href="/#projects"
-            >
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 underline">
-                PROJECTS
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="block px-4 py-2 no-underline outline-none hover:no-underline"
-              href="/#education"
-            >
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 underline">
-                EDUCATION
-              </div>
-            </Link>
-          </li>
-          {/* <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/blog"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">BLOGS</div></Link>
-          </li> */}
-        </ul>
-      </div>
-    </nav>
+  const handleClick = () => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 700);
+  };
+
+  return (
+    <>
+      {loading && <Loading />}
+
+      <nav className="bg-transparent">
+        <div className="flex items-center justify-between py-5">
+          <RotatingProfile />
+
+          <ul className="md:flex md:space-x-1">
+            {[
+              ["ABOUT", "#about"],
+              ["EXPERIENCE", "#experience"],
+              ["SKILLS", "#skills"],
+              ["PROJECTS", "#projects"],
+              ["EDUCATION", "#education"],
+            ].map(([label, hash]) => (
+              <li key={hash}>
+                <Link
+                  href={`/${hash}`}
+                  onClick={handleClick}
+                  className="px-4 py-2 text-white hover:text-pink-600 underline"
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+    </>
   );
 }
 
