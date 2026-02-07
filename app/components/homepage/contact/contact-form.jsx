@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -9,6 +9,19 @@ export default function ContactPage() {
   });
 
   const [status, setStatus] = useState("");
+  const [padding, setPadding] = useState("40px"); // responsive padding
+
+  // Browser-only code safe in useEffect
+  useEffect(() => {
+    const updatePadding = () => {
+      setPadding(window.innerWidth < 768 ? "20px" : "40px");
+    };
+
+    updatePadding(); // initial check
+    window.addEventListener("resize", updatePadding);
+
+    return () => window.removeEventListener("resize", updatePadding);
+  }, []);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -28,7 +41,7 @@ export default function ContactPage() {
       const data = await res.json();
 
       if (data.success) {
-        setStatus("Message Sent Successfully ✔ Chak email !");
+        setStatus("Message Sent Successfully ✔ Check email!");
         setForm({ name: "", email: "", message: "" });
       } else {
         setStatus("Failed to send ❌");
@@ -46,10 +59,10 @@ export default function ContactPage() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: window.innerWidth < 768 ? "20px" : "40px", // smaller padding on mobile
+        padding: padding, // responsive padding from state
       }}
     >
-      {/* Glass  */}
+      {/* Glass Container */}
       <div
         style={{
           width: "100%",
@@ -79,7 +92,6 @@ export default function ContactPage() {
           onSubmit={handleSubmit}
           style={{ display: "flex", flexDirection: "column", gap: "18px" }}
         >
-          {/* Input */}
           <input
             name="name"
             type="text"
@@ -120,14 +132,13 @@ export default function ContactPage() {
             onBlur={(e) => (e.target.style.boxShadow = "none")}
           />
 
-          {/* Textarea */}
           <textarea
             name="message"
             placeholder="Write your message..."
             value={form.message}
             onChange={handleChange}
             required
-            rows="5"
+            rows={5}
             style={{
               padding: "14px",
               background: "rgba(255,255,255,0.07)",
@@ -140,9 +151,8 @@ export default function ContactPage() {
             }}
             onFocus={(e) => (e.target.style.boxShadow = "0 0 12px #00eaff")}
             onBlur={(e) => (e.target.style.boxShadow = "none")}
-          ></textarea>
+          />
 
-          {/* Button */}
           <button
             type="submit"
             style={{
@@ -165,7 +175,6 @@ export default function ContactPage() {
           </button>
         </form>
 
-        {/* Status Message */}
         {status && (
           <p
             style={{
