@@ -43,11 +43,10 @@ export default function ContactPage() {
     <div
       style={{
         minHeight: "100vh",
-        // background: "radial-gradient(circle at top, #0a0f1f, #000)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "40px",
+        padding: window.innerWidth < 768 ? "20px" : "40px", // smaller padding on mobile
       }}
     >
       {/* Glass  */}

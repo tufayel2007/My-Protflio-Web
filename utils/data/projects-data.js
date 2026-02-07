@@ -1,6 +1,18 @@
 export const projectsData = [
   {
     id: 1,
+    name: "Famous IT Solutions ",
+
+    description:
+      "Famous IT Solutions is an innovative and client-centric IT company that leverages modern technology to create effective digital solutions for businesses and society. We provide comprehensive services including web and mobile application development, UI/UX design, SEO, digital marketing, and cyber security — empowering startups, SMEs, and large organizations to achieve rapid growth and competitive advantages. Clean code, high performance, and user-friendly experiences form the core standards of every project we deliver.",
+    tools: ["React", "MongoDB", "HTML", "CSS", "Javascript", "Tailwind"],
+    role: "Full Stack Developer",
+    code: "/",
+    demo: "https://famous-it-solutions.vercel.app/",
+    image: "/FamousITSolutions.png",
+  },
+  {
+    id: 2,
     name: "Public Infrastructure Issue Reporting System",
 
     description:
@@ -12,7 +24,7 @@ export const projectsData = [
     image: "/NagorSeba.png",
   },
   {
-    id: 2,
+    id: 3,
     name: "Social Development Events Platform",
 
     description:
@@ -22,27 +34,5 @@ export const projectsData = [
     code: "https://github.com/tufayel2007/Social-Development-Events-Platform",
     demo: "https://sociale-development.vercel.app/",
     image: "/Social Development .png",
-  },
-  {
-    id: 3,
-    name: "Green Nest",
-    description:
-      "GreenNest is a modern, responsive Single Page Application (SPA) designed for indoor plant enthusiasts. It serves as a comprehensive platform where users can explore plant care guides, browse and purchase indoor plants, and book expert consultation services. Our goal is to make homes greener, healthier, and more peaceful by connecting users with the plants and knowledge they need.",
-    tools: ["React", "MongoDB", "HTML", "CSS", "Javascript", "Tailwind"],
-    role: "Full Stack Developer",
-    code: "https://github.com/tufayel2007/GREEN-NEST-CLAINT",
-    demo: "https://grren-nest.web.app/",
-    image: "/GREEN-NEST.png",
-  },
-  {
-    id: 4,
-    name: "GREEN EARTH",
-    description:
-      "A fun mini-games project built with React, featuring classic games like Tic Tac Toe, Quiz, and Play & Pause. It showcases interactive UI, state management, and responsive design.",
-    tools: ["React", "JavaScript", "CSS"],
-    role: "Full Stack Developer",
-    code: "https://github.com/tufayel2007/green-earth.git",
-    demo: "https://tufayel2007.github.io/green-earth/",
-    image: "/GREEN-EARTH.png",
   },
 ];

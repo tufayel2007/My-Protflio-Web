@@ -73,7 +73,7 @@ export async function POST(req) {
                   <p style="margin:0 0 8px;font-size:15px;color:#324356;"><strong>Email:</strong> <a href="mailto:${email}" style="color:#2aa1ff;text-decoration:none;">${email}</a></p>
                   <p style="margin:8px 0 0;font-size:13px;color:#5a6b80;">Received: ${new Date().toLocaleString(
                     "en-GB",
-                    { timeZone: "Asia/Dhaka" }
+                    { timeZone: "Asia/Dhaka" },
                   )}</p>
                 </div>
               </td>
@@ -86,7 +86,7 @@ export async function POST(req) {
                   <strong style="display:block;margin-bottom:12px;color:#0b2f66;font-size:15px;">Message</strong>
                   <div style="white-space:pre-wrap;line-height:1.65;font-size:15px;color:#2b3b4b;">${message.replace(
                     /\n/g,
-                    "<br>"
+                    "<br>",
                   )}</div>
                 </div>
               </td>
@@ -127,7 +127,7 @@ export async function POST(req) {
   </div>
 </body>
 </html>
-  `, // ← এখানে html: দিয়েছি
+  `,
     });
 
     // 3) Auto Reply Email (FULL FIXED VERSION)
