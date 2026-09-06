@@ -29,7 +29,7 @@ function AboutSection() {
               Founder & CEO of{" "}
               <strong className="text-blue-700 underline font-bold">
                 <Link
-                  href="https://famous-it-solutions.vercel.app/"
+                  href="https://www.famousit-solutions.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-blue-600 transition-colors"
@@ -99,7 +99,7 @@ function AboutSection() {
           {/* Optional company CTA */}
           <div className="pt-4">
             <Link
-              href="https://famous-it-solutions.vercel.app/"
+              href="https://www.famousit-solutions.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-[#16f2b3] hover:text-[#13d9a1] font-medium transition-colors"
