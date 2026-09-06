@@ -4,7 +4,7 @@ export const experiences = [
     title: "Tufayel Ahmed ",
     company: "Famous IT Solutions {Founder & CEO} ",
     duration: "( Present)",
-    companyVisitLink: "https://famous-it-solutions.vercel.app/",
+    companyVisitLink: "https://www.famousit-solutions.com/",
   },
   {
     id: 2,
