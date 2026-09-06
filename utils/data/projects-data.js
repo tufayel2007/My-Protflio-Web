@@ -8,7 +8,7 @@ export const projectsData = [
     tools: ["React", "MongoDB", "HTML", "CSS", "Javascript", "Tailwind"],
     role: "Full Stack Developer",
     code: "/",
-    demo: "https://famous-it-solutions.vercel.app/",
+    demo: "https://www.famousit-solutions.com/",
     image: "/FamousITSolutions.png",
   },
   {
